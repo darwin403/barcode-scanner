@@ -43,7 +43,6 @@ export default function Index() {
           }
           return [...prevProducts, response];
         });
-        setError(null);
         handleHideScanner();
       })
       .catch((error) => {
