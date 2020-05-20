@@ -16,8 +16,9 @@ export default function Index() {
   const handleShowScanner = () => setShowScanner(true);
   const handleHideScanner = () => setShowScanner(false);
 
-  const updateItems = (result) => {
-    setItems((items) => [...items, "detected"]);
+  const updateItems = (item) => {
+    setItems((items) => [...items, item]);
+    setShowScanner(false);
   };
 
   return (
@@ -56,7 +57,13 @@ export default function Index() {
         </div>
         <div class="hero-body">
           <div class="container has-text-centered">
-            <h1 className="title">Find a Product</h1>
+            <h1 className="title">Build: {shortid.generate()}</h1>
+            {items.length === 0 ? (
+              <h1 className="title">Find a Product</h1>
+            ) : (
+              <h1 className="title">Add another Product?</h1>
+            )}
+
             <button
               class="button is-large is-rounded"
               onClick={handleShowScanner}
@@ -64,12 +71,13 @@ export default function Index() {
               <span class="icon is-small">
                 <FontAwesomeIcon icon={faBarcode} />
               </span>
+
               <span>Scan Barcode</span>
             </button>
-            {showScanner ? (
+            {showScanner && (
               <div class={showScanner ? "modal is-active" : "modal"}>
-                <div class="modal-background"></div>
-                <div class="modal-content">
+                {/* <div class="modal-background"></div> */}
+                <div class="modal-background">
                   <Scanner onDetected={updateItems} />
                 </div>
                 <button
@@ -78,8 +86,6 @@ export default function Index() {
                   onClick={handleHideScanner}
                 ></button>
               </div>
-            ) : (
-              ""
             )}
           </div>
         </div>
