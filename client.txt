@@ -1,0 +1,60 @@
+Table:
+
+name | description | barcode | cost | retail
+
+
+Items:
+
+H7G
+FORMULA (H7) 1 GALON
+098968310446
+Cost: $6.00
+Retail: $10.00
+
+H7MP36
+H7 MULTI PURPOSE CLEANER 36 OZ
+098968311009
+Cost: $3.00
+Retail: $6.00
+
+GPMP
+GP-MULTI PURPOSE CLEANR 32 OZ
+098968310668
+Cost: $3.00
+Retail: $6.00
+
+
+Insert this to DB.
+
+
+Web Responsive: (Need to be compatible with all mobile phone displays)
+
+
+Search Box with scanner or manual input box
+
+
+when the user Scan the item
+will display the item with quantity box then 
+he need to add mutiple items .
+if the user need to edit one item, then he can scan the item and edit the quantity 
+at the final the user will send the data to an email..
+and i will receive all the data with teh items
+
+
+
+
+
+
+Email 
+
+
+subject : DEMO - Articulos seleccionados 
+
+Body:
+
+Table:
+
+
+         Costo Cantidad Total         Retail Cantidad Total
+[name] , [quantity * cost]       ,    [quantiy * retail]
+
