@@ -17,7 +17,7 @@ export default function Index() {
   const handleHideScanner = () => setShowScanner(false);
 
   const updateItems = (item) => {
-    setItems((items) => [...items, item]);
+    setItems((items) => [...items, item.codeResult.code]);
     setShowScanner(false);
   };
 
@@ -57,12 +57,17 @@ export default function Index() {
         </div>
         <div class="hero-body">
           <div class="container has-text-centered">
-            <h1 className="title">Build: {shortid.generate()}</h1>
+            <h1>Build: 123</h1>
             {items.length === 0 ? (
               <h1 className="title">Find a Product</h1>
             ) : (
               <h1 className="title">Add another Product?</h1>
             )}
+            <ul>
+              {items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
 
             <button
               class="button is-large is-rounded"
