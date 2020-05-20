@@ -6,7 +6,7 @@
 const knex = require("knex")({
   client: "sqlite3",
   connection: {
-    filename: "public/db.sqlite",
+    filename: "db.sqlite",
   },
   useNullAsDefault: true,
 });
@@ -88,9 +88,10 @@ new Setting({ type: "email" }).fetch({ require: false }).then((result) => {
     return new Setting({
       type: "email",
       setting: JSON.stringify({
-        from: "noreply@bot.com",
-        subject: "Product Listings",
-        html: "This is my default template",
+        to: "d.gonzalez@zerosystempr.com",
+        subject: "DEMO - Articulos seleccionados",
+        html:
+          "<table><thead><tr><th>Costo</th><th>Cantidad Total</th><th>Retail Cantidad Total</th></tr></thead><tbody><% products.forEach(function(product) { %><tr><td><%- product.name %></td><td>$<%- product.cost*product.quantity %></td><td>$<%- product.retail*product.quantity %></td></tr><% }); %></tbody><table>",
       }),
     })
       .save()

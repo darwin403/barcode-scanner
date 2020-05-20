@@ -52,8 +52,8 @@ export default (req, res) => {
 
     // check email setting
     if (type === "email") {
-      const { from, subject, html } = JSON.parse(setting);
-      if (!from || !subject || !html) {
+      const { to, subject, html } = JSON.parse(setting);
+      if (!to || !subject || !html) {
         return res.status(400).json({
           statusCode: 400,
           error: "Bad Request.",

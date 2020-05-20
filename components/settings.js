@@ -8,7 +8,7 @@ import {
 import { useState, useEffect } from "react";
 
 export default function Add(props) {
-  const [from, setFrom] = useState("bot@nextjs.io");
+  const [to, setTo] = useState("bot@nextjs.io");
   const [subject, setSubject] = useState("Awesome Nextjs");
   const [html, setHTML] = useState("You should definitely check it out!");
 
@@ -24,7 +24,7 @@ export default function Add(props) {
       "/api/settings?" +
         new URLSearchParams({
           type: "email",
-          setting: JSON.stringify({ from, subject, html }),
+          setting: JSON.stringify({ to, subject, html }),
         }),
       {
         method: "POST",
@@ -60,7 +60,7 @@ export default function Add(props) {
                 <div className="notification is-success">
                   Email settings updated successfully!
                   <p>
-                    From: {result.from}, Subject: {result.subject}, HTML:{" "}
+                    To: {result.to}, Subject: {result.subject}, HTML:{" "}
                     {result.html}
                   </p>
                 </div>
@@ -78,8 +78,8 @@ export default function Add(props) {
                         className="input"
                         type="email"
                         placeholder="noreply@bot.io"
-                        value={from}
-                        onChange={(e) => setFrom(e.target.value)}
+                        value={to}
+                        onChange={(e) => setTo(e.target.value)}
                       />
                       <span className="icon is-small is-left">
                         <FontAwesomeIcon icon={faAt} />

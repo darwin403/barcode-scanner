@@ -44,7 +44,7 @@ export default function Add(props) {
         .catch((err) => {
           setError(err.message);
         });
-    }, 50000);
+    }, 5000);
     return () => clearTimeout(subscribe);
   });
 

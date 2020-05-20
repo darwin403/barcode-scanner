@@ -1,13 +1,15 @@
 import Head from "next/head";
-import Scanner from "../components/scanner2";
-import Add from "../components/add";
-import Search from "../components/search";
-import Settings from "../components/settings";
 import { useState, useEffect, useRef } from "react";
 import shortid from "shortid";
 import "./index.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBarcode } from "@fortawesome/free-solid-svg-icons";
+
+import Scanner from "../components/scanner";
+import Add from "../components/add";
+import Search from "../components/search";
+import Settings from "../components/settings";
+import Cart from "../components/cart";
 
 export default function Index() {
   const [showScanner, setShowScanner] = useState(false);
@@ -58,12 +60,7 @@ export default function Index() {
           <header className="navbar">
             <div className="container">
               <div className="navbar-brand">
-                <a className="navbar-item">
-                  <img
-                    src="https://bulma.io/images/bulma-type-white.png"
-                    alt="Logo"
-                  />
-                </a>
+                <a className="navbar-item">DEMO</a>
                 <span
                   className="navbar-burger burger"
                   data-target="navbarMenuHeroC"
@@ -75,7 +72,6 @@ export default function Index() {
               </div>
               <div id="navbarMenuHeroC" className="navbar-menu">
                 <div className="navbar-end">
-                  <a className="navbar-item is-active">Home</a>
                   <a className="navbar-item">Source</a>
                 </div>
               </div>
@@ -84,12 +80,15 @@ export default function Index() {
         </div>
         <div className="hero-body">
           <div className="container has-text-centered">
+            <img
+              src="https://i.imgur.com/yuGpzAH.png"
+              style={{ height: "50px" }}
+            />
             <div className="row" style={{ margin: "3em 0" }}>
-              <h1>Build: CHeck</h1>
               <h1 className="title">
                 {products.length === 0
                   ? "Add a Product"
-                  : "Ad another product?"}
+                  : "Add another product?"}
               </h1>
 
               <button
@@ -117,7 +116,7 @@ export default function Index() {
             </div>
             <div className="row">
               {error && <div className="notification is-danger">{error}</div>}
-              {products.length !== 0 && (
+              {/* {products.length !== 0 && (
                 <ul className="box list">
                   {products.map(({ barcode, product }) => (
                     <li key={shortid.generate()}>
@@ -128,7 +127,8 @@ export default function Index() {
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
+              <Cart products={products} />
             </div>
           </div>
         </div>
