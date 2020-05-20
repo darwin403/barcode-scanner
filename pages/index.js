@@ -38,10 +38,10 @@ export default function Index() {
         if ("statusCode" in response) throw new Error(response.message);
 
         setProducts((prevProducts) => {
-          if (prevProducts.some((i) => i.product.id === response.id)) {
+          if (prevProducts.some((i) => i.id === response.id)) {
             return prevProducts;
           }
-          return [...prevProducts, { barcode, product: response }];
+          return [...prevProducts, response];
         });
         handleHideScanner();
       })
@@ -116,9 +116,7 @@ export default function Index() {
             </div>
             <div className="row">
               {error && <div className="notification is-danger">{error}</div>}
-              <Cart 
-              // products={products} 
-              />
+              <Cart products={products} />
             </div>
           </div>
         </div>
