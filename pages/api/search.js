@@ -14,7 +14,7 @@ export default (req, res) => {
   }
 
   return Product.where({ barcode })
-    .orderBy("updated_at", "DESC")
+    .orderBy("id", "DESC")
     .fetch()
     .then(function (result) {
       return res.send(result);

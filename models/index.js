@@ -6,7 +6,7 @@
 const knex = require("knex")({
   client: "sqlite3",
   connection: {
-    filename: "db.sqlite",
+    filename: "public/db.sqlite",
   },
   useNullAsDefault: true,
 });
@@ -42,21 +42,21 @@ Product.where({})
         {
           name: "H7G",
           description: "FORMULA (H7) 1 GALON",
-          barcode: "098968310446",
+          barcode: "ABC-abc-1234",
           cost: 6.0,
           retail: 10.0,
         },
         {
           name: "H7MP36",
           description: "H7 MULTI PURPOSE CLEANER 36 OZ",
-          barcode: "098968311009",
+          barcode: "KLM-osj-1234",
           cost: 3.0,
           retail: 6.0,
         },
         {
           name: "GPMP",
           description: "GP-MULTI PURPOSE CLEANR 32 OZ",
-          barcode: "098968310668",
+          barcode: "EFG-dbc-1234",
           cost: 3.0,
           retail: 6.0,
         },

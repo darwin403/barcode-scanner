@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import { useEffect, useState } from "react";
 import Quagga from "quagga";
 
-class Scanner extends Component {
-  componentDidMount() {
+export default function Scanner(props) {
+  useEffect(() => {
     Quagga.init(
       {
         inputStream: {
@@ -10,7 +10,7 @@ class Scanner extends Component {
           constraints: {
             width: 640,
             height: 480,
-            facingMode: "environment", // or user
+            facingMode: "environment",
           },
         },
         locator: {
@@ -25,25 +25,20 @@ class Scanner extends Component {
       },
       function (err) {
         if (err) {
-          return console.log(err);
+          return console.log(error);
         }
         Quagga.start();
+        return () => Quagga.stop();
       }
     );
-    Quagga.onDetected(this._onDetected);
-  }
 
-  componentWillUnmount() {
-    Quagga.offDetected(this._onDetected);
-  }
+    Quagga.onDetected((result) => {
+      console.log(result);
+      props.onBarcode(result.codeResult.code);
+    });
 
-  _onDetected = (result) => {
-    this.props.onBarcode(result.codeResult.code);
-  };
+    return () => Quagga.stop();
+  }, []);
 
-  render() {
-    return <div id="interactive" className="viewport" />;
-  }
+  return <div id="interactive" className="viewport" />;
 }
-
-export default Scanner;

@@ -61,7 +61,7 @@ export default function Add(props) {
           <div className="columns">
             <div className="column">
               {result && !error && (
-                <div class="notification is-success">
+                <div className="notification is-success">
                   Product added successfully!
                   <p>
                     Product ID: {result.id}, Product Name: {result.name},
@@ -70,7 +70,7 @@ export default function Add(props) {
                 </div>
               )}
               {error && !result && (
-                <div class="notification is-danger">
+                <div className="notification is-danger">
                   Product add failed! {error}
                 </div>
               )}
@@ -147,8 +147,8 @@ export default function Add(props) {
                     </p>
                   </div>
                   <div className="field">
-                    <button class="button is-primary" onClick={submit}>
-                      <span class="icon">
+                    <button className="button is-primary" onClick={submit}>
+                      <span className="icon">
                         <FontAwesomeIcon icon={faPlusCircle} />
                       </span>
                       <span>Create</span>
