@@ -24,17 +24,7 @@ export default function Cart(props) {
 
   const updateQuantity = (e, id) => {
     const value = e.target.value;
-    let newQuantity;
-
-    if (!value || isNaN(value)) {
-      newQuantity = 0;
-    } else {
-      if (parseInt(value) < 0) {
-        newQuantity = 0;
-      } else {
-        newQuantity = parseInt(value);
-      }
-    }
+    let newQuantity = value ? parseInt(value) : value;
 
     setProducts((prevProducts) =>
       prevProducts.map((i) => {

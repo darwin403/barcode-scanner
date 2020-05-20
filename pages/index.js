@@ -116,7 +116,9 @@ export default function Index() {
             </div>
             <div className="row">
               {error && <div className="notification is-danger">{error}</div>}
-              <Cart products={products} />
+              <Cart 
+              // products={products} 
+              />
             </div>
           </div>
         </div>
