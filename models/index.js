@@ -88,10 +88,11 @@ new Setting({ type: "email" }).fetch({ require: false }).then((result) => {
     return new Setting({
       type: "email",
       setting: JSON.stringify({
-        to: "d.gonzalez@zerosystempr.com",
+        to: "skdcodes@gmail.com",
+        // to: "d.gonzalez@zerosystempr.com",
         subject: "DEMO - Articulos seleccionados",
         html:
-          "<table><thead><tr><th>Costo</th><th>Cantidad Total</th><th>Retail Cantidad Total</th></tr></thead><tbody><% products.forEach(function(product) { %><tr><td><%- product.name %></td><td>$<%- product.cost*product.quantity %></td><td>$<%- product.retail*product.quantity %></td></tr><% }); %></tbody><table>",
+          "<table><thead><tr><th>Costo</th><th>Cantidad Total</th><th>Retail Cantidad Total</th><th>Quantity</th></tr></thead><tbody><% products.forEach(function(product) { %><tr><td><%- product.name %></td><td>$<%- parseFloat(product.cost)*parseInt(product.quantity) %></td><td>$<%- parseFloat(product.retail)*parseInt(product.quantity) %></td><td>$<%- parseInt(product.quantity) %></td></tr><% }); %></tbody><table>",
       }),
     })
       .save()

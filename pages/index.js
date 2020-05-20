@@ -116,18 +116,6 @@ export default function Index() {
             </div>
             <div className="row">
               {error && <div className="notification is-danger">{error}</div>}
-              {/* {products.length !== 0 && (
-                <ul className="box list">
-                  {products.map(({ barcode, product }) => (
-                    <li key={shortid.generate()}>
-                      Barcode found: {barcode}
-                      <br />
-                      Product ID: {product.id} Name: {product.name} Cost:{" "}
-                      {product.cost}
-                    </li>
-                  ))}
-                </ul>
-              )} */}
               <Cart products={products} />
             </div>
           </div>
